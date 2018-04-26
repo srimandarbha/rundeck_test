@@ -19,7 +19,8 @@ do
  du ${proj_name}.zip >> ./genfile.txt
 done
 
-for x in `cat -t genfile.txt` 
+IFS=$'\n'
+for x in `cat genfile.txt` 
 do
 echo $x
 egrep -qi $x genfile.txt.orig || echo $((++push_counter))
